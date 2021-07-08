@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render App correctly 1`] = `
+<GlobalProvider>
+  <div
+    className="App"
+    style={
+      Object {
+        "marginTop": "5em",
+      }
+    }
+  >
+    <Container
+      fluid={false}
+      style={
+        Object {
+          "maxWidth": "900px",
+        }
+      }
+    >
+      <Row
+        className="pb-3"
+        noGutters={false}
+      >
+        <HobbySearchBar />
+      </Row>
+      <Row
+        noGutters={false}
+      >
+        <HobbyList />
+      </Row>
+    </Container>
+  </div>
+  <Alert />
+  <HobbyModal />
+  <HobbyDeleteModal />
+  <HobbyContentModal />
+</GlobalProvider>
+`;

@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useContext } from 'react'
+import { Container, Row } from 'react-bootstrap'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import HobbyList from './components/HobbyList'
+import HobbyModal from './components/HobbyModal'
+import HobbySearchBar from './components/HobbySearchBar'
+import Alert from './components/Alert'
+import HobbyDeleteModal from './components/HobbyDeleteModal'
+import HobbyContentModal from './components/HobbyContentModal'
+import { GlobalProvider } from './context/Provider'
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const styles = {
+  app: {
+    marginTop: '5em',
+  },
+  container: {
+    maxWidth: '900px',
+  },
 }
 
-export default App;
+const App = () => {
+  return (
+    <GlobalProvider>
+      <div className='App' style={styles.app}>
+        <Container style={styles.container}>
+          <Row className='pb-3'>
+            <HobbySearchBar />
+          </Row>
+          <Row>
+            <HobbyList />
+          </Row>
+        </Container>
+      </div>
+      <Alert />
+      <HobbyModal />
+      <HobbyDeleteModal />
+      <HobbyContentModal />
+    </GlobalProvider>
+  )
+}
+
+export default App
