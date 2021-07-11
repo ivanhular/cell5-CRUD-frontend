@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Modal, Button, Spinner, Alert } from 'react-bootstrap'
+import React, { useContext, useEffect } from 'react'
+import { Modal, Spinner, Alert } from 'react-bootstrap'
 import parse from 'html-react-parser'
 import { GlobalContext } from '../context/Provider'
 import {
@@ -15,7 +15,6 @@ const HobbyContentModal = () => {
       selected,
       contentModal,
       queryWikiLoading,
-      queryWikiSuccess,
       queryContent,
       queryError,
     },
@@ -27,7 +26,7 @@ const HobbyContentModal = () => {
       console.log(selected)
       queryWiki(selected.title)(dispatch)
     }
-  }, [selected])
+  }, [dispatch, selected])
   return (
     <>
       <Modal
@@ -61,20 +60,6 @@ const HobbyContentModal = () => {
             parse(queryContent)
           )}
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant='success' type='submit' onClick={deleteHandler}>
-            {deleteLoading && (
-              <Spinner
-                as='span'
-                animation='border'
-                size='sm'
-                role='status'
-                aria-hidden='true'
-              />
-            )}{' '}
-            Yes
-          </Button>
-        </Modal.Footer> */}
       </Modal>
     </>
   )

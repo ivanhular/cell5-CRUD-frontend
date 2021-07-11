@@ -9,12 +9,10 @@ import {
   HOBBY_SHOW_TOAST,
   HOBBY_TOAST_MESSAGE,
   HOBBY_CREATE_ERROR,
+  HOBBY_CREATE_RESET,
   HOBBY_SELECTED,
 } from '../constants/actionTypes'
 
-export const util = {
-  saveHandler: null,
-}
 const HobbyModal = (props) => {
   const {
     data: { success, modal, loading, error, selected },
@@ -23,7 +21,7 @@ const HobbyModal = (props) => {
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
 
-  util.saveHandler = (e) => {
+  const saveHandler = (e) => {
     e.preventDefault()
     if (selected) {
       updateHobby({
@@ -73,6 +71,7 @@ const HobbyModal = (props) => {
       show={modal}
       onHide={() => {
         dispatch({ type: HOBBY_HIDE_MODAL })
+        dispatch({ type: HOBBY_CREATE_RESET })
         clearInput()
       }}
     >
@@ -107,7 +106,7 @@ const HobbyModal = (props) => {
         {error && <Alert variant='danger'>{error}</Alert>}
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='success' type='submit' onClick={util.saveHandler}>
+        <Button variant='success' type='submit' onClick={saveHandler}>
           {loading ? (
             <Spinner
               as='span'

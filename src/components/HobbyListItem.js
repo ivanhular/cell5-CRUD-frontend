@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Button, OverlayTrigger, Tooltip, Popover } from 'react-bootstrap'
+import { Button, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { GlobalContext } from '../context/Provider'

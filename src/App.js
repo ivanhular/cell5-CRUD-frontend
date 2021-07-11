@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React from 'react'
 import { Container, Row } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import HobbyList from './components/HobbyList'
 import HobbyModal from './components/HobbyModal'
 import HobbySearchBar from './components/HobbySearchBar'

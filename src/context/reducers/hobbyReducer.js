@@ -9,7 +9,6 @@ import {
   HOBBY_CREATE_RESET,
   HOBBY_DELETE_REQUEST,
   HOBBY_DELETE_SUCCESS,
-  HOBBY_DELETE_ERROR,
   HOBBY_SHOW_MODAL,
   HOBBY_HIDE_MODAL,
   HOBBY_SHOW_DELETE_MODAL,
@@ -73,6 +72,12 @@ export const hobbyReducer = (state, action) => {
         hobbies: [],
       }
 
+    case HOBBY_CREATE_RESET:
+      return {
+        ...state,
+        error: '',
+      }
+
     case HOBBY_SHOW_MODAL:
       return {
         ...state,
@@ -129,24 +134,15 @@ export const hobbyReducer = (state, action) => {
         hobbies:
           action.payload === 'title'
             ? state.hobbies.sort((a, b) => {
-                if (a.title.toLowerCase() < b.title.toLowerCase()) {
-                  return -1
-                } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
-                  return 1
-                } else {
-                  return 0
-                }
+                if (a.title.toLowerCase() === b.title.toLowerCase()) return 0
+                return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1
               })
             : state.hobbies.sort((a, b) => {
-                if (a.description.toLowerCase() < b.description.toLowerCase()) {
-                  return -1
-                } else if (
-                  a.description.toLowerCase() > b.description.toLowerCase()
-                ) {
-                  return 1
-                } else {
+                if (a.description.toLowerCase() === b.description.toLowerCase())
                   return 0
-                }
+                return a.description.toLowerCase() < b.description.toLowerCase()
+                  ? -1
+                  : 1
               }),
       }
 

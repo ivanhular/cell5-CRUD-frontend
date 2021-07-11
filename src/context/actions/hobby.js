@@ -3,11 +3,9 @@ import {
   HOBBY_LIST_REQUEST,
   HOBBY_LIST_SUCCESS,
   HOBBY_LIST_ERROR,
-  HOBBY_LIST_RESET,
   HOBBY_CREATE_REQUEST,
   HOBBY_CREATE_SUCCESS,
   HOBBY_CREATE_ERROR,
-  HOBBY_CREATE_RESET,
   HOBBY_DELETE_REQUEST,
   HOBBY_DELETE_SUCCESS,
   HOBBY_DELETE_ERROR,
@@ -23,7 +21,6 @@ export const listHobby = (search, sort) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // 'x-api-key': process.env.REACT_APP_CAT_APIKEY,
       },
     }
 
@@ -55,7 +52,6 @@ export const createHobby =
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          // 'x-api-key': process.env.REACT_APP_CAT_APIKEY,
         },
       }
 
@@ -83,7 +79,6 @@ export const updateHobby =
       const config = {
         headers: {
           'Content-Type': 'application/json',
-          // 'x-api-key': process.env.REACT_APP_CAT_APIKEY,
         },
       }
 
@@ -113,7 +108,6 @@ export const deleteHobby = (id) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // 'x-api-key': process.env.REACT_APP_CAT_APIKEY,
       },
     }
 
@@ -139,7 +133,6 @@ export const queryWiki = (search) => async (dispatch) => {
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        // 'x-api-key': process.env.REACT_APP_CAT_APIKEY,
       },
     }
 

@@ -1,7 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { Modal, Button, Spinner, Alert } from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSave } from '@fortawesome/free-solid-svg-icons'
+import React, { useContext, useEffect } from 'react'
+import { Modal, Button, Spinner } from 'react-bootstrap'
 import { GlobalContext } from '../context/Provider'
 import { listHobby, deleteHobby } from '../context/actions/hobby'
 import {
@@ -13,7 +11,7 @@ import {
 
 const HobbyDeleteModal = () => {
   const {
-    data: { selected, deleteSuccess, deleteModal, deleteLoading, error },
+    data: { selected, deleteSuccess, deleteModal, deleteLoading },
     dispatch,
   } = useContext(GlobalContext)
 
@@ -29,7 +27,7 @@ const HobbyDeleteModal = () => {
       dispatch({ type: HOBBY_TOAST_MESSAGE, payload: 'Successfully Deleted!' })
       dispatch({ type: HOBBY_SHOW_TOAST })
     }
-  }, [deleteSuccess])
+  }, [dispatch, deleteSuccess])
   return (
     <>
       <Modal

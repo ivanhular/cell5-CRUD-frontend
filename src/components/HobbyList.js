@@ -23,8 +23,12 @@ const HobbyList = () => {
       <Table striped bordered hover size='sm'>
         <thead>
           <tr>
-            <th onClick={sortByHeader}>Title</th>
-            <th onClick={sortByHeader}>Description</th>
+            <th style={{ cursor: 'pointer' }} onClick={sortByHeader}>
+              Title
+            </th>
+            <th style={{ cursor: 'pointer' }} onClick={sortByHeader}>
+              Description
+            </th>
             <th style={{ width: '15%' }}>Actions</th>
           </tr>
         </thead>

@@ -6,14 +6,6 @@ import { GlobalContext } from '../context/Provider'
 import { HOBBY_SHOW_MODAL } from '../constants/actionTypes'
 import { listHobby } from '../context/actions/hobby'
 
-const styles = {
-  heading: {
-    textAlign: 'left',
-  },
-  buttonCol: {
-    textAlign: 'right',
-  },
-}
 const HobbySearchBar = () => {
   const { dispatch } = useContext(GlobalContext)
   const [search, setSearch] = useState('')
@@ -25,7 +17,6 @@ const HobbySearchBar = () => {
   return (
     <>
       <Col className='p-0' style={{ display: 'flex' }}>
-        {/* <h2 style={styles.heading}>Hobbies</h2> */}
         <Form.Control
           type='text'
           placeholder='Enter Search Keyword'
@@ -47,7 +38,12 @@ const HobbySearchBar = () => {
           <FontAwesomeIcon icon={faSearch} />
         </Button>
       </Col>
-      <Col className='p-0' style={styles.buttonCol}>
+      <Col
+        className='p-0'
+        style={{
+          textAlign: 'right',
+        }}
+      >
         <Button
           onClick={() => {
             dispatch({ type: HOBBY_SHOW_MODAL })
